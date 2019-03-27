@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-# Callbacks
+    # Callbacks
   before_save :reformat_phone
   
   # Relationships
@@ -39,4 +39,3 @@ class Store < ApplicationRecord
   end
 
 end
-

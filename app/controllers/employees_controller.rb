@@ -1,4 +1,4 @@
-class EmployeesControllerController < ApplicationController
+class EmployeesController < ApplicationController
         
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
@@ -41,7 +41,7 @@ class EmployeesControllerController < ApplicationController
 
   private
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :ssn, :date_of_birth, :phone, :role, :active)
+    params.require(:employee).permit(:first_name, :last_name, :ssn, :date_of_birth, :phone, :role, :active => [])
   end
   
   def set_employee

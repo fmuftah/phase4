@@ -4,7 +4,7 @@ class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
   
   def index
-    @stores = Store.active.alphabetical.paginate(page: params[:page]).per_page(10)
+    @stores = Store.alphabetical
   end
 
   def show
@@ -42,7 +42,7 @@ class StoresController < ApplicationController
   private
   
   def store_params
-    params.require(:store).permit(:name, :street, :city, :state, :zip, :phone, :latitude, :longitude, :active)
+    params.require(:store).permit(:name, :street, :city, :state, :zip, :phone, :latitude, :longitude, :active => [])
   end
   
   def set_store

@@ -1,10 +1,10 @@
-class AssignmentsControllerController < ApplicationController
+class AssignmentsController < ApplicationController
         
   before_action :set_assignment, only: [:edit, :update, :destroy]
 
 
   def index
-    @assignments = Assignment.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @assignments = Assignment.by_store.paginate(:page => params[:page]).per_page(10)
   end
 
    def show
@@ -42,7 +42,7 @@ class AssignmentsControllerController < ApplicationController
   private
   
   def assignment_params
-    params.require(:assignment).permit(:employee_id, :store_id, :start_date, :end_date, :pay_level)
+    params.require(:assignment).permit(:employee_id, :store_id, :start_date, :end_date, :pay_level => [])
   end
   
   def set_assignment

@@ -1,3 +1,7 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+
 <%= form_with(model: employee, local: true) do |form| %>
   <% if employee.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +14,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
@@ -28,7 +32,8 @@
 
   <div class="field">
     <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth %>
+    <%= form.text_field :date_of_birth, prompt: "Date of Birth", class: "datepicker", :value =>
+					(form.object.date_of_birth.strftime('%B %d, %Y') if form.object.date_of_birth != nil)%>
   </div>
 
   <div class="field">
@@ -38,15 +43,19 @@
 
   <div class="field">
     <%= form.label :role %>
-    <%= form.text_field :role %>
+    <%= form.select :role, options_for_select([['Employee', 'employee'],['Manager', 'manager'],['Administrator', 'admin']])%>
   </div>
 
   <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.label :active %><br />
+    <%= form.select :active, options_for_select([['Yes', true], ['No', false]])%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class=>"btn btn-outline-secondary" %>
+    <%= link_to 'Cancel', stores_path, :class => "btn btn-outline-secondary" %>
   </div>
+    <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>
 <% end %>

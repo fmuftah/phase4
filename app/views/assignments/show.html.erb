@@ -2,12 +2,12 @@
 
 <p>
   <strong>Store:</strong>
-  <%= @assignment.store_id %>
+  <%= Store.find(@assignment.store_id).name %>
 </p>
 
 <p>
   <strong>Employee:</strong>
-  <%= @assignment.employee_id %>
+  <%= Employee.find(@assignment.employee_id).name %>
 </p>
 
 <p>

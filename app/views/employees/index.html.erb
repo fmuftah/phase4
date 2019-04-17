@@ -1,13 +1,19 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Employees</h1>
 
-<h1>Employees</h1>
-
-<table>
+<%= link_to 'New Employee', new_employee_path, :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Ssn</th>
+      <th>Snn</th>
       <th>Date of birth</th>
       <th>Phone</th>
       <th>Role</th>
@@ -34,6 +40,9 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

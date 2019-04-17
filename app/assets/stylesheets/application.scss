@@ -1,8 +1,108 @@
-$primary-color: #90caf9;
+
 $button-height: 26px;
-$table-striped-color: #eceff1;
-#toast-container { left:1%;
-right: auto !important;}
+$table-striped-color: #EBEAED;
+
+
+#navbarDropdownMenuLink{
+    font-family: verdana, arial, helvetica, sans-serif;
+    color: black;
+}
+
+#brand-logo{
+    font-weight: bold;
+    color: black;
+    font-size: 40px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    margin-left: 50px;
+}
+
+#icon{
+    
+     vertical-align: top; 
+     margin-top: 7px;
+    
+}
+
+.navbar-inner {
+   background-color: white;
+   padding: 1rem;
+   height: 100px;
+}
+
+#about{
+    
+    width: 1250px;
+    height: 400px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: white;
+    font-size: 40px;
+    text-align: center;
+    opacity: 0.5;
+}
+#about-us{
+      color: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin-top: 200px;
+      left: 0;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+      font-weight: bolder;
+      font-size: 62px;
+}
+h1{
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 92px;
+}
+#btn {
+    padding: 5rem, 3rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 30px;
+    border-radius: -4rem;
+    background-color: #CAFFDA;
+    border: #CAFFDA;
+    color: black;
+}
+
+.form1 {
+    align-items: center;
+    margin-left: 360px;
+    margin-right: 70px;
+    width: 700px;
+    background-color: white;
+}
+
+.striped{
+    margin-right: 70px;
+    width: 690;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+
+}
+
+
+h1{
+        font-weight: bold;
+    color: black;
+    font-size: 40px;
+    font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.container{
+    background-color:white;
+    
+}
+.field{
+    width: 300px;
+    margin-left: 400px;
+}
+
 
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "materialize";

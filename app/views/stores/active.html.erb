@@ -1,0 +1,53 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
+<p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Active Stores</h1>
+
+<%= link_to 'New Store', new_store_path,  :class=> "right" %><br>
+
+<table class="striped">
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @active_stores.each do |store| %>
+      <tr>
+        <td><%= store.name %></td>
+        <td><%= store.street %></td>
+        <td><%= store.city %></td>
+        <td><%= store.state %></td>
+        <td><%= store.zip %></td>
+        <td><%= store.phone %></td>
+        <td><%= store.latitude %></td>
+        <td><%= store.longitude %></td>
+        <td><%= store.active %></td>
+        <td><%= link_to 'Show', store %></td>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

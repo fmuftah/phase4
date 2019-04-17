@@ -1,10 +1,17 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Stores</h1>
 
-<h1>Stores</h1>
-
-<table>
+<%= link_to 'New Store', new_store_path,  :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
+      
       <th>Name</th>
       <th>Street</th>
       <th>City</th>
@@ -18,7 +25,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody >
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.name %></td>
@@ -40,4 +47,6 @@
 
 <br>
 
-<%= link_to 'New Store', new_store_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

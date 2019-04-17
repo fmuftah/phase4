@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
 
 
   def index
-     @employees = Employee.active.alphabetical.paginate(page: params[:page]).per_page(10)
+     @employees = Employee.alphabetical
   end
 
   def show
@@ -38,10 +38,40 @@ class EmployeesController < ApplicationController
     @employee.destroy
     redirect_to employee_url
   end
+  
+  def active_employees
+    @active_employees = Employee.active.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def inactive_employees
+    @inactive_employees = Employee.inactive.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def younger_than_18
+    @younger_than_18 = Employee.younger_than_18.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def is_18_or_older
+    @is_18_or_older = Employee.is_18_or_older.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def regulars
+    @regulars = Employee.regulars.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def managers
+    @managers = Employee.managers.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def admins
+    @admins = Employee.admins.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+    
+    
 
   private
   def employee_params
-    params.require(:employee).permit(:first_name, :last_name, :ssn, :date_of_birth, :phone, :role, :active => [])
+    params.require(:employee).permit(:first_name, :last_name, :ssn, :date_of_birth, :phone, :role, :active)
   end
   
   def set_employee

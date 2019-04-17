@@ -1,8 +1,14 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Assignments</h1>
 
-<h1>Assignments</h1>
-
-<table>
+<%= link_to 'New Assignment', new_assignment_path, :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
       <th>Store</th>
@@ -17,8 +23,8 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.store_id %></td>
-        <td><%= assignment.employee_id %></td>
+        <td><%= Store.find( assignment.store_id).name %></td>
+        <td><%= Employee.find( assignment.employee_id).name %></td>
         <td><%= assignment.start_date %></td>
         <td><%= assignment.end_date %></td>
         <td><%= assignment.pay_level %></td>
@@ -30,6 +36,9 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Assignment', new_assignment_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

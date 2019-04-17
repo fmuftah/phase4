@@ -3,58 +3,80 @@
 <head>
   <title>Creamery :: <%= controller.controller_name.capitalize %> - <%= controller.action_name.capitalize %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <%= csrf_meta_tags %>
 </head>
 <body>
 <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><%= link_to "List Store", stores_path %></li>
-    <li><%= link_to "Add an Store", new_store_path %></li> 
-  </ul>
-  
-  <ul id="dropdown2" class="dropdown-content">
-    <li><%= link_to "List Employee", employees_path %></li>
-    <li><%= link_to "Add an Employee", new_employee_path %></li> 
-  </ul>
-  
-  <ul id="dropdown3" class="dropdown-content">
-    <li><%= link_to "List Assignment", assignments_path %></li>
-    <li><%= link_to "Add an Assignment", new_assignment_path %></li> 
-  </ul>
-  
-  <nav>
-  <div class="nav-wrapper">
-    &nbsp&nbsp
-    <a href="/" class="brand-logo">Creamery</a>
-  
-  <ul class="right">
-    <li><%# link_to "Categories", categories_path %></li> <!-- Only add this line if you did the work for the categories controller -->
-    <!-- Dropdown Trigger -->
-    <li><a class="dropdown-button" href="/assignments" data-activates="dropdown3">Assignment<i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a class="dropdown-button" href="/stores" data-activates="dropdown1">Stores<i class="material-icons right">arrow_drop_down</i></a></li>
-    <li><a class="dropdown-button" href="/employees" data-activates="dropdown2">Employees<i class="material-icons right">arrow_drop_down</i></a></li>
-  </ul>
-</div> 
+<nav class="navbar-inner">  
+    
+    <a href="/" id="brand-logo">The A&M Creamery</a>
+    <img src="/assets/icon.png" id = "icon" width= 50px height= 50px >
+    <ul class="right">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/stores" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Stores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href= "/stores"> Store List</a>
+          <a class="dropdown-item" href="/stores/new">Add Store</a>
+          <a class="dropdown-item" href= "/active"> Active Store List</a>
+          <a class="dropdown-item" href="/inactive">Inactive Store List</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/employees" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Employee
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href= "/employees"> Employees List</a>
+          <a class="dropdown-item" href="/employees/new">Add Employees</a>
+          <a class="dropdown-item" href= "/active_employees"> Active Employees List</a>
+          <a class="dropdown-item" href= "/inactive_employees"> Inactive Employees List</a>
+          <a class="dropdown-item" href= "/younger"> 18 or younger</a>
+          <a class="dropdown-item" href= "/older"> 18 or older</a>
+          <a class="dropdown-item" href= "/regulars"> Employees</a>
+          <a class="dropdown-item" href= "/managers"> Managers</a>
+          <a class="dropdown-item" href= "/admins"> Admins</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/employees" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Assignments
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href= "/assignments"> Assignments List</a>
+          <a class="dropdown-item" href="/assignments/new">Add Assignments</a>
+          <a class="dropdown-item" href= "/current"> Current Assignments</a>
+          <a class="dropdown-item" href= "/past"> Past Assignments</a>
+        </div>
+      </li>
+    </ul>
+
 </nav>
-  <div class="row">
-    <div class="col s8 center">
+
+    <div class="center">
       <!-- MAIN CONTENT GOES HERE -->
       <%= yield %> 
     </div>
-    <div class="col s1"> 
-    </div>
+
 
   </div>
   <footer>
-    <div class="row">
-      <div class="col s8 center">
+   
+      <div class="center">
         <%= render partial: 'partials/footer' %>
       </div> 
-    </div>
+    
   </footer> 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 <%= javascript_include_tag "application" %>
 <% flash.each do |message_type, message| %>
   <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
 <% end %>
 </html>
+

@@ -1,3 +1,7 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+
 <%= form_with(model: store, local: true) do |form| %>
   <% if store.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +14,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -52,12 +56,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :active %>
-    <%= form.text_field :active %>
+    <%= form.label :active %><br />
+    <%= form.select :active, options_for_select([['Yes', true], ['No', false]])%>
   </div>
 
   <div class="actions">
     <%= form.submit :class=>"btn waves-effect waves-light" %>
     <%= link_to 'Cancel', stores_path, :class => 'waves-effect waves-light btn red' %>
   </div>
+    <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>
 <% end %>

@@ -1,0 +1,44 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
+<p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Assignments By Employees</h1>
+
+<%= link_to 'New Assignment', new_assignment_path, :class=> "right" %><br>
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Employee</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Pay level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @by_employee.each do |assignment| %>
+      <tr>
+        <td><%= Store.find( assignment.store_id).name %></td>
+        <td><%= Employee.find( assignment.employee_id).name %></td>
+        <td><%= assignment.start_date %></td>
+        <td><%= assignment.end_date %></td>
+        <td><%= assignment.pay_level %></td>
+        <td><%= link_to 'Show', assignment %></td>
+        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

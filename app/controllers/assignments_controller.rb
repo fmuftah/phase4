@@ -1,10 +1,10 @@
 class AssignmentsController < ApplicationController
         
-  before_action :set_assignment, only: [:edit, :update, :destroy]
+  before_action :set_assignment, only: [:show,:edit, :update, :destroy]
 
 
   def index
-    @assignments = Assignment.by_store.paginate(:page => params[:page]).per_page(10)
+    @assignments = Assignment.for_store.paginate(:page => params[:page]).per_page(10)
   end
 
    def show
@@ -38,11 +38,50 @@ class AssignmentsController < ApplicationController
     @assignment.destroy
     redirect_to assignments_url
   end
+  
+  def current
+    @current = Assignment.current.paginate(page: params[:page]).per_page(10)
+  end
+    
+  def past
+    @past = Assignment.past.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def by_employee
+    @by_employee = Assignment.by_employee.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def chronological
+    @chronological = Assignment.chronological.paginate(page: params[:page]).per_page(10)
+  end
+  
+  def for_store
+    @for_store = Assignment.for_store(1)
+  end
+  
+  def for_employee
+    @for_employee = Assignment.for_employee(1)
+  end
+  
+  def for_pay_level
+    @for_pay_level = Assignment.for_pay_level(1)
+  end
+  
+  def for_role
+    @for_role = Assignment.for_role("admin")
+  end
+  
+  
+  
+  
+  
+  
+  
 
   private
   
   def assignment_params
-    params.require(:assignment).permit(:employee_id, :store_id, :start_date, :end_date, :pay_level => [])
+    params.require(:assignment).permit(:employee_id, :store_id, :start_date, :end_date, :pay_level)
   end
   
   def set_assignment

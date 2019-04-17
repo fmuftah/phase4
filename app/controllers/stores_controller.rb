@@ -39,10 +39,20 @@ class StoresController < ApplicationController
     redirect_to stores_url
   end
 
+  def active
+      @active_stores = Store.active.alphabetical.paginate(page: params[:page]).per_page(10)
+  end
+  
+  
+  def inactive
+    @inactive_stores = Store.inactive.alphabetical.paginate(page: params[:page]).per_page(10) 
+  end
+  
+    
   private
   
   def store_params
-    params.require(:store).permit(:name, :street, :city, :state, :zip, :phone, :latitude, :longitude, :active => [])
+    params.require(:store).permit(:name, :street, :city, :state, :zip, :phone, :latitude, :longitude, :active)
   end
   
   def set_store

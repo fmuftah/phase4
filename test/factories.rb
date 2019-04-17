@@ -17,7 +17,7 @@ FactoryBot.define do
     state {"PA"}
     zip {"15213"}
     phone { rand(10 ** 10).to_s.rjust(10,'0') }
-    active {true}
+    active { true }
   end
   
   factory :assignment do

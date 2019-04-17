@@ -1,3 +1,6 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
 <%= form_with(model: assignment, local: true) do |form| %>
   <% if assignment.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +13,18 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :store_id %>
-    <%= form.collection_select :store_id, Store.alphabetical, :id, :name, :prompt => "Select ..." %>
+    <%= form.collection_select :store_id, Store.active.alphabetical, :id, :name, :prompt => "Select ..." %>
   </div>
 
   <div class="field">
     <%= form.label :employee_id %>
-    <%= form.collection_select :employee_id, Employee.alphabetical, :id, :name, :prompt => "Select ..." %>
+    <%= form.collection_select :employee_id, Employee.active.alphabetical, :id, :name, :prompt => "Select ..." %>
   </div>
 
-  <div class="input-field">
+  <div class="field">
     <%= form.label :start_date %>
 					<%= form.text_field :start_date, prompt: "Start Date", class: "datepicker", :value =>
 					(form.object.start_date.strftime('%B %d, %Y') if form.object.start_date != nil)%>
@@ -39,6 +42,10 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class=>"btn waves-effect waves-light" %>
+    <%= link_to 'Cancel', stores_path, :class => 'waves-effect waves-light btn red' %>
   </div>
+    <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>
 <% end %>

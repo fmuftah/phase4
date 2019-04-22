@@ -17,7 +17,7 @@ FactoryBot.define do
     state {"PA"}
     zip {"15213"}
     phone { rand(10 ** 10).to_s.rjust(10,'0') }
-    active { true }
+    active {true}
   end
   
   factory :assignment do
@@ -27,5 +27,34 @@ FactoryBot.define do
     end_date {1.month.ago.to_date}
     pay_level {1}
   end
+  
+  factory :shift do
+    association :assignment
+    date {Date.today}
+    start_time {"10:00am".to_time}
+    end_time {"2:00pm".to_time}
+    note {"note...."}
+  end
+  
+  factory :shift_job do
+    association :shift
+    association :job
+  end
+  
+  factory :job do
+    name {"Cashier"}
+    description {"Regestir cash"}
+    active {true}
+  end
+  
+  factory :flavor do
+    name {"Vanilla"}
+    active {true}
+  end
 
+  factory :store_flavor do
+    association :store
+    association :flavor
+  end
+  
 end

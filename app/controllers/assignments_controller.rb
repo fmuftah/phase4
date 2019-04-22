@@ -4,7 +4,7 @@ class AssignmentsController < ApplicationController
 
 
   def index
-    @assignments = Assignment.for_store.paginate(:page => params[:page]).per_page(10)
+    @assignments = Assignment.chronological
   end
 
    def show

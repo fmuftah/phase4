@@ -2,6 +2,7 @@ class Employee < ApplicationRecord
  # Callbacks
   before_save :reformat_phone
   before_validation :reformat_ssn
+  before_destroy :is_destroyable?
   
   # Relationships
   has_many :assignments
@@ -69,4 +70,18 @@ class Employee < ApplicationRecord
      ssn.gsub!(/[^0-9]/,"")   # strip all non-digits
      self.ssn = ssn           # reset self.ssn to new string
    end
+   
+  def is_destroyable?
+    @destroyable = self.shifts.past.empty?
+  end
+  
+  # def clean_up_assignment_and_shifts
+  #   if @destroyable
+  #     remove_upcoming_shifts
+  #     self.current_assignment.delete unless self.current_assignment.nil?
+  #   end
+  #   @destroyable = nil
+  # end
+  
+  
 end

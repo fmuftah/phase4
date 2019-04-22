@@ -158,5 +158,15 @@ class EmployeeTest < ActiveSupport::TestCase
       assert_equal 17, @cindy.age
       assert_equal 30, @kathryn.age
     end
+    
+    should "recognize when an employee is destroyable" do 
+      create_stores
+      create_assignments
+      create_shifts
+      assert @cindy.destroy
+      remove_stores
+      remove_assignments
+      remove_shifts
+    end
   end
 end

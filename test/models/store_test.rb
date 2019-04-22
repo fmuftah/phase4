@@ -83,6 +83,17 @@ class StoreTest < ActiveSupport::TestCase
       assert_equal 1, Store.inactive.size
       assert_equal ["Hazelwood"], Store.inactive.alphabetical.map{|s| s.name}
     end
+    
+    should "correctly assess that stores are not destroyable" do
+      deny @cmu.destroy
+      deny @hazelwood.destroy
+    end
+
+    # should "make an undestroyed store inactive" do
+    #   deny @cmu.destroy
+    #   @cmu.reload
+    #   deny @cmu.active
+    # end
   
   end
 end

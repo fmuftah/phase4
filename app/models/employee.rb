@@ -4,13 +4,14 @@ class Employee < ApplicationRecord
   before_validation :reformat_ssn
   before_destroy :is_destroyable?
   
-  accept_nested_attribute_for :user
   
   # Relationships
   has_many :assignments
   has_many :stores, through: :assignments
-  has_one :user, dependent: :destroy
+  has_one :user
   has_many :shifts, through: :assignments
+  
+    accepts_nested_attributes_for :user
   
   # Validations
   validates_presence_of :first_name, :last_name, :date_of_birth, :ssn, :role

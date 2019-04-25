@@ -4,6 +4,7 @@ class User < ApplicationRecord
     
     has_secure_password
     
+    
     validates_uniqueness_of :email, :employee_id
     validates_uniqueness_of :email, :employee_id
     validate :employee_is_active_in_system, on: :create

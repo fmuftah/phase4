@@ -43,12 +43,21 @@
 
   <div class="field">
     <%= form.label :role %>
-    <%= form.select :role, options_for_select([['Employee', 'employee'],['Manager', 'manager'],['Administrator', 'admin']])%>
+    <%= form.select :role, options_for_select([['Employee', 'employee'],['Manager', 'manager'],['Administrator', 'admin']]), :prompt => 'Select Role'%>
   </div>
 
   <div class="field">
     <%= form.label :active %><br />
     <%= form.select :active, options_for_select([['Yes', true], ['No', false]])%>
+  </div>
+  <div class="field">
+  <%= form.fields_for :user do |f| %>
+    <%= f.label "Email" %>
+    <%= f.email_field :email %>
+    
+    <%= f.label "Password" %>
+    <%= f.password_field :password %>
+  <% end %>
   </div>
 
   <div class="actions">
@@ -58,4 +67,5 @@
     <div class="small-1 columns">&nbsp;</div>
 	<div class="small-5 columns">&nbsp;</div>
 </div>
+
 <% end %>

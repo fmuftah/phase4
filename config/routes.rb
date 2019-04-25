@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   
   # Set the root url
-  root to: 'demos#new', as: :home
+  root to: 'home#home', as: :home
   get 'active', to: 'stores#active', as: :active_stores
   get 'inactive', to: 'stores#inactive', as: :inactive_stores
   get "active_employees", to: "employees#active_employees", as: :active_employees

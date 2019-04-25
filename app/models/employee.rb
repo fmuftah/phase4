@@ -4,6 +4,8 @@ class Employee < ApplicationRecord
   before_validation :reformat_ssn
   before_destroy :is_destroyable?
   
+  accept_nested_attribute_for :user
+  
   # Relationships
   has_many :assignments
   has_many :stores, through: :assignments

@@ -32,10 +32,10 @@ class FlavorTest < ActiveSupport::TestCase
       assert_equal ["Strawberry"], Flavor.inactive.map{|i| i.name}
     end
     
-    should "flavors cant be deleted, only made inactive" do
+    should "make sure that flavor cant be destroyable" do
       @chocolate.destroy
-      assert_equal 1, Flavor.inactive.size
-      assert_equal ["Strawberry"], Flavor.inactive.map{|i| i.name}
+      assert_equal 2, Flavor.active.size
+      assert_equal ["Chocolate", "Mango", "Strawberry", "Vanilla"], Flavor.alphabetical.map{|i| i.name}
     end
 
   end

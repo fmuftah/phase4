@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   resources :stores
   resources :employees
   resources :assignments
-  
+  resources :demos, only: [:new, :create, :destroy]
+  get 'demos/new', to: 'demos#new', as: :login
+  get 'demos/destroy', to: 'demos#destroy', as: :logout
   # need routes for authors and categories ...
   
   
   # Set the root url
-  root to: 'home#home', as: :home
+  root to: 'demos#new', as: :home
   get 'active', to: 'stores#active', as: :active_stores
   get 'inactive', to: 'stores#inactive', as: :inactive_stores
   get "active_employees", to: "employees#active_employees", as: :active_employees

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :logged_in_user
+  # before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -71,4 +73,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:employee_id, :email, :password_digest)
     end
+    
+    
 end

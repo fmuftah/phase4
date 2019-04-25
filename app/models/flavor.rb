@@ -9,17 +9,17 @@ class Flavor < ApplicationRecord
   
   validates_presence_of :name
   
-  before_destroy :destroyable
+  before_destroy :stop
   after_rollback :make_inactive
-  
+     
   private
-  def destroyable
-  	return false
-  end
-  
-  # def make_inactive
-  # 	self.update_attribute(:active, false)
-  # end
+    def stop
+        throw :abort
+    end
+    
+    def make_inactive
+        self.update_attribute(:active, false)
+    end
 
   
 end

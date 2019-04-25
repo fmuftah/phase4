@@ -1,7 +1,8 @@
 class EmployeesController < ApplicationController
         
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-
+  
+  
 
   def index
      @employees = Employee.alphabetical

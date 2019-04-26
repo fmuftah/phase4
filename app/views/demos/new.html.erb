@@ -1,12 +1,37 @@
-<%= form_for(:demo, url: demos_path) do |f|  %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+ <style>
+    body { background-color: #FFCFCA; }
+  </style>
     
+<body ng-app="mainModule" ng-controller="mainController">
+    
+<div id="login-page" class="center">
+    <%= form_for(:demo, url: demos_path) do |f|  %>
+    <div class="col s12 z-depth-6 card-panel">
+      <form class="login-form">
+        <div class="center">
+            <h1>Login </h1>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+                <%= f.label :email %>
+    <%= f.email_field :email %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
     <%= f.label :password %>
     <%= f.password_field :password %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+             <%= f.submit "Login", :class=>"btn btn-outline-secondary"%>
+          </div>
+        </div>
     
-    <%= f.submit "Login" %>
-    
+
+      </form>
+    </div>
+  </div> </body>
+
 <% end %>
-    
-    

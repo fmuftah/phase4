@@ -93,16 +93,6 @@ class ShiftTest < ActiveSupport::TestCase
       assert @shift_test_current.valid?
     end
     
-    # should "have a completed? method that works properly" do
-    #   create_jobs
-    #   create_shift_jobs
-    #   assert @ed_past_shift1.shift_jobs.empty?
-    #   deny @ed_past_shift1.completed?
-    #   assert_equal 2, @ed_past_shift2.shift_jobs.size
-    #   assert @ed_past_shift2.completed?
-    #   remove_jobs
-    #   remove_shift_jobs
-    # end
     
     
   end

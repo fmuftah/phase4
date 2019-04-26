@@ -1,8 +1,8 @@
 class Assignment < ApplicationRecord
 # Callbacks
   before_create :end_previous_assignment
-  before_destroy :stop
-
+  before_destroy :destroyable?
+  after_rollback :terminate_assignment
   
   # Relationships
   belongs_to :employee
@@ -29,6 +29,22 @@ class Assignment < ApplicationRecord
   scope :for_pay_level, ->(pay_level) { where("pay_level = ?", pay_level) }
   scope :for_role,      ->(role) { joins(:employee).where("role = ?", role) }
 
+
+  def destroyable?
+    @destroyable = self.shifts.past.empty?
+  end
+  
+  def terminate_assignment
+    remove_future_shifts if @destroyable == false
+    self.update_attribute(:end_date, Date.current) if @destroyable == false
+    return "Removed successfully"
+  end
+  
+  def remove_future_shifts
+    @future_shifts = self.shifts.upcoming
+    @future_shifts.each {|s| s.destroy}
+  end
+  
   # Private methods for callbacks and custom validations
   private  
   
@@ -55,11 +71,8 @@ class Assignment < ApplicationRecord
       errors.add(:store_id, "is not an active store at the creamery")
     end
   end
-  
-  def stop
-        throw :abort
-  end
     
+
   
   
 end

@@ -122,8 +122,12 @@ class AssignmentTest < ActiveSupport::TestCase
     
     should "make sure that assignment cant be destroyable" do
       @promote_ben.destroy
-      assert_equal 5, Assignment.chronological.size
-      assert_equal [3, 5, 1, 4, 2], Assignment.chronological.map{|i| i.id}
+      assert_equal 4, Assignment.chronological.size
+      assert_equal [5, 1, 4, 2], Assignment.chronological.map{|i| i.id}
+    end
+    
+    should "terminate an assignment" do
+      assert_equal "Removed successfully", @assign_ed.terminate_assignment
     end
   end
 end

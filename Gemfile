@@ -70,11 +70,13 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'sqlite3','~>1.3.6'
 end
 group :test do
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
   gem 'simplecov'
+  gem 'sqlite3','~>1.3.6'
 end
 
 group :production do

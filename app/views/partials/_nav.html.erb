@@ -49,6 +49,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href= "/shifts"> Shifts List</a>
           <a class="dropdown-item" href="/shifts/new">Add Shift</a>
+          <a class="dropdown-item" href= "/shift_jobs"> Shift Jobs List</a>
+          <a class="dropdown-item" href="/shift_jobs/new">Add Shift Jobs</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -61,15 +63,6 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/shift_jobs" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Shift Jobs
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/shift_jobs"> Shift Jobs List</a>
-          <a class="dropdown-item" href="/shift_jobs/new">Add Shift Jobs</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="/flavor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Flavor
         </a>
@@ -79,6 +72,9 @@
           <a class="dropdown-item" href= "/store_flavors"> Store Flavors List</a>
           <a class="dropdown-item" href="/store_flavors/new">Add Flavor to Store</a>
         </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a><%= link_to 'Profile', employee_path(current_user.employee), :id=> "navbarDropdownMenuLink"%> </a> 
       </li>
       <li class="nav-item dropdown">
           <% if logged_in? %>

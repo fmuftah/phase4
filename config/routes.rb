@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   root to: 'home#home', as: :home
   get 'active', to: 'stores#active', as: :active_stores
   get 'inactive', to: 'stores#inactive', as: :inactive_stores
+  get 'store_manager', to: 'stores#store_manager', as: :store_managers  
   get "active_employees", to: "employees#active_employees", as: :active_employees
   get "inactive_employees", to: "employees#inactive_employees", as: :inactive_employees
   get "younger", to: "employees#younger_than_18", as: :younger_than_18
@@ -35,5 +36,10 @@ Rails.application.routes.draw do
   get "for_employee", to:"assignments#for_employee", as: :for_employee
   get "for_pay_level", to:"assignments#for_pay_level", as: :for_pay_level
   get "for_role", to:"assignments#for_role", as: :for_role
-
+  get "job_manager", to:"jobs#job_manager", as: :job_manager
+  get "flavor_manager", to:"flavors#flavor_manager", as: :flavor_manager
+  get "assignment_manager", to:"assignments#assignment_manager", as: :assignment_manager
+  get "employee_manager", to:"employees#employee_manager", as: :employee_manager
+  get "shift_manager", to:"shifts#shift_manager", as: :shift_manager
+  get "add_shift_manager", to:"shifts#add_shift_manager", as: :add_shift_manager
 end

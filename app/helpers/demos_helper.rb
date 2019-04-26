@@ -15,4 +15,12 @@ module DemosHelper
        session.delete(:user_id)
        @current_user = nil
     end
+    
+    def current_user_store
+        @current_user_store ||=  Store.find_by(id: session[:user_id])
+    end
+    
+    def current_user_employee
+        @current_user_employee ||=  Employee.find_by(id: session[:user_id])
+    end
 end

@@ -10,7 +10,7 @@ class DemosController < ApplicationController
         if (current_user.role? :employee or current_user.role? :manager)
           if(!current_user.employee.nil?) then x = current_user.employee.shifts.for_next_days(0)
             if x.empty? 
-              redirect_to shifts_path, notice: "Logged in!"
+              redirect_to employee_path(current_user.employee), notice: "Logged in!"
             else 
               redirect_to shift_path(x.first), notice: "Logged in!"
             end

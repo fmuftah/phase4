@@ -69,6 +69,10 @@ class EmployeesController < ApplicationController
     @admins = Employee.admins.alphabetical.paginate(page: params[:page]).per_page(10)
   end
     
+  def employee_manager
+    @employee_manager = Employee.alphabetical
+  end
+  
     
 
   private

@@ -7,7 +7,7 @@
 	<div class="small-5 columns">&nbsp;</div>
 <h1>List of Store Flavor</h1>
 
-<%= link_to 'New Store Flavor', new_shift_path, :class=> "right" %><br>
+<%= link_to 'New  Flavor', new_store_flavor_path, :class=> "right" %><br>
 <table class="striped">
   <thead>
     <tr>
@@ -20,8 +20,8 @@
   <tbody>
     <% @store_flavors.each do |store_flavor| %>
       <tr>
-        <td><%= store_flavor.store_id %></td>
-        <td><%= store_flavor.flavor_id %></td>
+        <td><%= Store.find( store_flavor.store_id).name %></td>
+        <td><%= Flavor.find( store_flavor.flavor_id).name %></td>
         <td><%= link_to 'Show', store_flavor %></td>
         <td><%= link_to 'Edit', edit_store_flavor_path(store_flavor) %></td>
         <td><%= link_to 'Destroy', store_flavor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

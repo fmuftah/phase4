@@ -60,6 +60,12 @@ class JobsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+    
+  def job_manager
+    @job_manager = Job.paginate(page: params[:page]).per_page(10) 
+  end
+    
 
   private
     # Use callbacks to share common setup or constraints between actions.

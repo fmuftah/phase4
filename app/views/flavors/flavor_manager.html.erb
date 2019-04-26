@@ -1,0 +1,36 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
+<p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Flavors</h1>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flavor_manager.each do |flavor| %>
+      <tr>
+        <td><%= flavor.name %></td>
+        <td><%= flavor.active %></td>
+        <td><%= link_to 'Show', flavor %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

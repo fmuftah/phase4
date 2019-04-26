@@ -57,6 +57,14 @@ class ShiftsController < ApplicationController
     @shift.destroy
     redirect_to shift_url
   end
+  
+    def shift_manager
+    @shift_manager = Shift.chronological
+  end
+  
+   def add_shift_manager
+    @add_shift_manager = Shift.chronological
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

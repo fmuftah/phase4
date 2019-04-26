@@ -71,6 +71,10 @@ class AssignmentsController < ApplicationController
     @for_role = Assignment.for_role("admin")
   end
   
+  def assignment_manager
+    @assignment_manager = Assignment.by_store.paginate(page: params[:page]).per_page(15)
+  end
+  
   
   
   

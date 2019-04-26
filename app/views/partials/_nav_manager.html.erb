@@ -5,80 +5,61 @@
     <ul class="right">
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/stores" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/store_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Stores
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/stores"> Store List</a>
-          <a class="dropdown-item" href="/stores/new">Add Store</a>
-          <a class="dropdown-item" href= "/active"> Active Store List</a>
-          <a class="dropdown-item" href="/inactive">Inactive Store List</a>
+          <a class="dropdown-item" href= "/store_manager"> Store List</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/employees" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/employee_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Employee
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/employees"> Employees List</a>
-          <a class="dropdown-item" href="/employees/new">Add Employees</a>
-          <a class="dropdown-item" href= "/active_employees"> Active Employees List</a>
-          <a class="dropdown-item" href= "/inactive_employees"> Inactive Employees List</a>
-          <a class="dropdown-item" href= "/younger"> 18 or younger</a>
-          <a class="dropdown-item" href= "/older"> 18 or older</a>
-          <a class="dropdown-item" href= "/regulars"> Employees</a>
-          <a class="dropdown-item" href= "/managers"> Managers</a>
-          <a class="dropdown-item" href= "/admins"> Admins</a>
+          <a class="dropdown-item" href= "/employee_manager"> Employees List</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/employees" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/assignment_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Assignments
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/assignments"> Assignments List</a>
-          <a class="dropdown-item" href="/assignments/new">Add Assignments</a>
-          <a class="dropdown-item" href= "/current"> Current Assignments</a>
-          <a class="dropdown-item" href= "/past"> Past Assignments</a>
+          <a class="dropdown-item" href= "/assignment_manager"> Assignments List</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/shifts" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/shift_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Shifts
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/shifts"> Shifts List</a>
-          <a class="dropdown-item" href="/shifts/new">Add Shift</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/jobs" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Jobs
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/jobs"> Jobs List</a>
-          <a class="dropdown-item" href="/jobs/new">Add Job</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/shift_jobs" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Shift Jobs
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href= "/shift_manager"> Shifts List</a>
+          <a class="dropdown-item" href= "/shifts/new">Add Shifts </a>
           <a class="dropdown-item" href= "/shift_jobs"> Shift Jobs List</a>
           <a class="dropdown-item" href="/shift_jobs/new">Add Shift Jobs</a>
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/flavor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/job_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Jobs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href= "/job_manager"> Jobs List</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/flavor_manager" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Flavor
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href= "/flavors"> Flavor List</a>
-          <a class="dropdown-item" href="/flavors/new">Add Flavor</a>
+          <a class="dropdown-item" href= "/flavor_manager"> Flavor List</a>
           <a class="dropdown-item" href= "/store_flavors"> Store Flavors List</a>
           <a class="dropdown-item" href="/store_flavors/new">Add Flavor to Store</a>
         </div>
+      </li>
+      <li class="nav-item dropdown">
+          <a><%= link_to 'Profile', employee_path(current_user.employee), :id=> "navbarDropdownMenuLink"%> </a> 
       </li>
       <li class="nav-item dropdown">
           <% if logged_in? %>

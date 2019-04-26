@@ -48,6 +48,9 @@ class StoresController < ApplicationController
     @inactive_stores = Store.inactive.alphabetical.paginate(page: params[:page]).per_page(10) 
   end
   
+  def store_manager
+    @store_managers = Store.paginate(page: params[:page]).per_page(10) 
+  end
     
   private
   

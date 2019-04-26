@@ -1,6 +1,8 @@
 class Assignment < ApplicationRecord
 # Callbacks
   before_create :end_previous_assignment
+  before_destroy :stop
+
   
   # Relationships
   belongs_to :employee
@@ -53,5 +55,12 @@ class Assignment < ApplicationRecord
       errors.add(:store_id, "is not an active store at the creamery")
     end
   end
+  
+  def stop
+        throw :abort
+  end
+    
+  
+  
 end
 

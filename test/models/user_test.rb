@@ -7,6 +7,7 @@ class UserTest < ActiveSupport::TestCase
   should have_secure_password
   should allow_value("fmuftah@andrew.cmu.edu").for(:email)
   should_not allow_value("fatima").for(:email)
+  should_not allow_value(nil).for(:email)
   
   context "Creating a context for users" do
     setup do 
@@ -19,12 +20,6 @@ class UserTest < ActiveSupport::TestCase
       remove_users
     end
     
-    should "shows that only active employees can have users" do
-      assert @alex.active
-      assert_not_nil @alex_user
-      @ghost = FactoryBot.build(:employee)
-      assert @ghost.valid?
-    end
     
   end
   

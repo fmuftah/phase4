@@ -29,35 +29,11 @@ class JobTest < ActiveSupport::TestCase
       assert_equal ["Mopping"], Job.inactive.map{|i| i.name}.sort
     end
     
-    # should "correctly assess when a job is destroyable" do
-    #   create_employees
-    #   create_stores
-    #   create_assignments
-    #   create_shifts
-    #   create_shift_jobs
-    #   assert @making.destroy
-    #   remove_shift_jobs
-    #   remove_employees
-    #   remove_stores
-    #   remove_assignments
-    #   remove_shifts
-    # end
-    
-    # should "make an undestroyable job inactive" do
-    #   create_employees
-    #   create_stores
-    #   create_assignments
-    #   create_shifts
-    #   create_shift_jobs
-    #   deny @cashier.destroy
-    #   @cashier.reload
-    #   deny @cashier.active
-    #   remove_shift_jobs
-    #   remove_employees
-    #   remove_stores
-    #   remove_assignments
-    #   remove_shifts
-    # end
-    
+    should "make sure that job cant be destroyable" do
+      @cashier.destroy
+      assert_equal 1, Job.active.size
+      assert_equal ["Cashier", "Making Icecream", "Mopping"], Job.alphabetical.map{|i| i.name}
+    end
+
   end
 end

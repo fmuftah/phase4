@@ -119,5 +119,11 @@ class AssignmentTest < ActiveSupport::TestCase
       assert_equal 1.day.ago.to_date, @kathryn.assignments.first.end_date
       @promote_kathryn.destroy
     end
+    
+    should "make sure that assignment cant be destroyable" do
+      @promote_ben.destroy
+      assert_equal 5, Assignment.chronological.size
+      assert_equal [3, 5, 1, 4, 2], Assignment.chronological.map{|i| i.id}
+    end
   end
 end

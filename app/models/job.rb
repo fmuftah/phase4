@@ -9,16 +9,18 @@ class Job < ApplicationRecord
   scope :inactive,-> { where(active: false) }
   scope :alphabetical,-> { order(:name) }
   
-  before_destroy :is_destroyable?
-  after_rollback :convert_to_inactive
   
-  def is_destroyable?
-    @destroyable = self.shift_jobs.empty?
-  end
+  before_destroy :stop
+  after_rollback :make_inactive
   
-  def convert_to_inactive
-    self.update_attribute(:active, false)
-  end
+  private
+    def stop
+        throw :abort
+    end
+    
+    def make_inactive
+        self.update_attribute(:active, false)
+    end
   
   
 end

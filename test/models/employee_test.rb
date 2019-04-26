@@ -159,14 +159,10 @@ class EmployeeTest < ActiveSupport::TestCase
       assert_equal 30, @kathryn.age
     end
     
-    should "recognize when an employee is destroyable" do 
-      create_stores
-      create_assignments
-      create_shifts
-      assert @cindy.destroy
-      remove_stores
-      remove_assignments
-      remove_shifts
+    should "make sure that employee cant be destroyable" do
+      @ed.destroy
+      assert_equal 4, Employee.active.size
+      assert_equal ["Crawford, Cindy", "Gruberman, Ed", "Heimann, Alex", "Janeway, Kathryn", "Sisko, Ben", "Wilson, Ralph"], Employee.alphabetical.map{|i| i.name}
     end
   end
 end

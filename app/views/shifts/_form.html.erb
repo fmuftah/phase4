@@ -1,3 +1,6 @@
+ <style>
+    body { background-color: #FFCFCA; }
+  </style>
 <%= form_with(model: shift, local: true) do |form| %>
   <% if shift.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :assignment_id %>
     <%= form.number_field :assignment_id %>
@@ -18,17 +21,20 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.text_field :date, prompt: "Date", class: "datepicker", :value =>
+					(form.object.date.strftime('%B %d, %Y') if form.object.date != nil)%>
   </div>
 
   <div class="field">
     <%= form.label :start_time %>
-    <%= form.time_select :start_time %>
+    <%= form.text_field :start_time, prompt: "Start Time", class: "timepicker", :value =>
+					(form.object.start_time.strftime("%H:%M:%S") if form.object.start_time != nil)%>
   </div>
 
   <div class="field">
     <%= form.label :end_time %>
-    <%= form.time_select :end_time %>
+     <%= form.text_field :end_time, prompt: "End Time", class: "timepicker", :value =>
+					(form.object.end_time.strftime('%H:%M:%S') if form.object.end_time != nil)%>
   </div>
 
   <div class="field">

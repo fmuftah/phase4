@@ -1,3 +1,6 @@
+ <style>
+    body { background-color: #FFCFCA; }
+  </style>
 <%= form_with(model: job, local: true) do |form| %>
   <% if job.errors.any? %>
     <div id="error_explanation">
@@ -10,20 +13,20 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
+    <%= form.label :active %><br />
+    <%= form.select :active, options_for_select([['Yes', true], ['No', false]])%>
+  </div>
+  
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
   </div>
 
   <div class="actions">

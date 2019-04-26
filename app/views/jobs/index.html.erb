@@ -1,8 +1,14 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Jobs</h1>
 
-<h1>Jobs</h1>
-
-<table>
+<%= link_to 'New Job', new_job_path, :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -28,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

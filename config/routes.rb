@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :employees
   resources :assignments
   resources :demos, only: [:new, :create, :destroy]
-  get 'demos/new', to: 'demos#new', as: :login
-  get 'demos/destroy', to: 'demos#destroy', as: :logout
+  get 'login', to: 'demos#new', as: :login
+  get 'logout', to: 'demos#destroy', as: :logout
   # need routes for authors and categories ...
   
   

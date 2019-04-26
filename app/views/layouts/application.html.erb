@@ -8,18 +8,24 @@
 </head>
 <body>
 <!-- Dropdown Structure -->
-<%= render partial: 'partials/nav' %>
+
+<% unless logged_in? %>
+  <%= render partial: 'partials/home_nav' %>
+<% else %>
+  <% if current_user.employee.role == 'admin' %>
+    <%= render partial: 'partials/nav' %>
+  <% elsif current_user.employee.role == 'manager' %>
+    <%= render partial: 'partials/nav_manager' %>
+  <% elsif current_user.employee.role == 'employee' %>
+    <%= render partial: 'partials/nav_employee' %>
+    <% end %>
+<% end %>
+
+
 
     <div class="center">
       <!-- MAIN CONTENT GOES HERE -->
-      <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-        <% if logged_in? %>
-      <%= link_to "Logout", logout_path %>
-    <% else %>
-      <%= link_to "Login", login_path %>
-    <% end %>
+  
       <%= yield %> 
     </div>
 

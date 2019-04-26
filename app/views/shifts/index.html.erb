@@ -1,8 +1,14 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Shifts</h1>
 
-<h1>Shifts</h1>
-
-<table>
+<%= link_to 'New Shifts', new_shift_path, :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
       <th>Assignment</th>
@@ -30,6 +36,9 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Shift', new_shift_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

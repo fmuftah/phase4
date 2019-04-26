@@ -1,8 +1,14 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+<div class="container">
 <p id="notice"><%= notice %></p>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+<h1>List of Store Flavor</h1>
 
-<h1>Store Flavors</h1>
-
-<table>
+<%= link_to 'New Store Flavor', new_shift_path, :class=> "right" %><br>
+<table class="striped">
   <thead>
     <tr>
       <th>Store</th>
@@ -24,6 +30,9 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Store Flavor', new_store_flavor_path %>
+  <div class="small-1 columns">&nbsp;</div>
+	<div class="small-5 columns">&nbsp;</div>
+</div>

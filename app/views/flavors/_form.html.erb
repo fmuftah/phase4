@@ -1,3 +1,7 @@
+  <style>
+    body { background-color: #FFCFCA; }
+  </style>
+
 <%= form_with(model: flavor, local: true) do |form| %>
   <% if flavor.errors.any? %>
     <div id="error_explanation">
@@ -10,15 +14,15 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.label :active %><br />
+    <%= form.select :active, options_for_select([['Yes', true], ['No', false]])%>
   </div>
 
   <div class="actions">
